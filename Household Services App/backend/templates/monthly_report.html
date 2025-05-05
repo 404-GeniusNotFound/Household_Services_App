@@ -1,0 +1,30 @@
+<!-- templates/monthly_report.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monthly Activity Report</title>
+</head>
+<body>
+    <h2>Monthly Activity Report for {{ customer.full_name }}</h2>
+    <p>Period: {{ first_day }} to {{ last_day }}</p>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Service</th>
+            <th>Status</th>
+            <th>Request Date</th>
+            <th>Completion Date</th>
+            <th>Remarks</th>
+        </tr>
+        {% for req in service_requests %}
+        <tr>
+            <td>{{ req.related_service.name }}</td>
+            <td>{{ req.status }}</td>
+            <td>{{ req.request_date.strftime('%Y-%m-%d') }}</td>
+            <td>{{ req.completion_date.strftime('%Y-%m-%d') if req.completion_date else 'N/A' }}</td>
+            <td>{{ req.remarks or 'N/A' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p>Thank you for using our services!</p>
+</body>
+</html>

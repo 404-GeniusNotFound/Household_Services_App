@@ -1,0 +1,14 @@
+Flask
+Werkzeug
+SQLAlchemy
+Flask-Login
+Flask-Migrate
+Flask-Caching
+Flask-Cors
+Flask-SQLAlchemy
+pytz
+Babel
+celery==5.4.0
+redis
+Flask-Mail
+python-dotenv
